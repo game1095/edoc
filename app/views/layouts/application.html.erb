@@ -6,10 +6,63 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'animate', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true  %>
 
-  <body>
-    <%= yield %>
-  </body>
+  </head>
+  <body class="">
+    <div id="wrapper">
+      <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+          <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+              <div class="dropdown profile-element">
+                <span>
+                  <i class="fa fa-user fa-5x"></i>
+                </span>
+                <h4><%= current_user.first_name %>  <%= current_user.last_name %></h4>
+                <h4><%= current_user.position.name %></h4>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <span class="clear"> <span class="block m-t-xs">
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                      <li><%= link_to 'Logout' , method: :delete %></li>
+                    </ul>
+                </div>
+                <div class="hr-line-dashed"></div>
+              </li>
+                <li>
+                 <%= link_to '<i class="fa fa-file"></i> งานรับเข้าเอกสาร'.html_safe , documents_path  ,class: 'nav-label' %>
+                </li>
+                <li>
+                  <%= link_to '<i class="fa fa-columns"></i> จัดการแฟ้มเอกสาร'.html_safe   ,class: 'nav-label' %>
+                </li>
+                <li>
+                  <%= link_to '<i class="fa fa-eye"></i> ติดตามเอกสาร'.html_safe   ,class: 'nav-label' %>
+                </li>
+                <li>
+                  <%= link_to '<i class="fa fa-car"></i> ส่งออกเอกสาร'.html_safe   ,class: 'nav-label' %>
+                </li>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+      </nav>
+        <div id="page-wrapper" class="gray-bg">
+          <div class="row border-bottom">
+            <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+              <!-- ด้านบนหัวสุดเลยสัส -->
+            </nav>
+          </div>
+          <div class="wrapper wrapper-content animated fadeInDown">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </body>
 </html>
