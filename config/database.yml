@@ -1,0 +1,38 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
+
+development:
+  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  database: db_edoc
+  pool: 5
+  host: localhost
+  username: postgres
+  password: 123456
+
+test:
+  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  database: db_edoc
+  pool: 5
+  host: localhost
+  username: postgres
+  password: 123456
+
+production:
+  <<: *default
+  sadapter: postgresql
+  encoding: utf8
+  database: db_edoc
+  pool: 5
+  host: localhost
+  username: postgres
+  password: 123456
