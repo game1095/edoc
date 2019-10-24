@@ -22,8 +22,8 @@
                 <span>
                   <i class="fa fa-user fa-5x"></i>
                 </span>
-                <h4><%= current_user.first_name %>  <%= current_user.last_name %></h4>
-                <h4><%= current_user.position.name %></h4>
+                <h4><%= current_user ? current_user.first_name : "" %>  <%= current_user ? current_user.last_name : "" %></h4>
+                <h4><%= current_user ? current_user.position.name : "" %></h4>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                   <span class="clear"> <span class="block m-t-xs">
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">

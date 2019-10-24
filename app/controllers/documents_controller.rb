@@ -36,7 +36,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @doucment = Document.find(params[:id])
+    @document = Document.find(params[:id])
     if @document.destroy
       redirect_to documents_path , flash: {notice: 'ลบเอกสารเรียบร้อยแล้ว'}
 
@@ -45,7 +45,7 @@ class DocumentsController < ApplicationController
 
   private
     def document_params
-      params.require(:document).permit(:number , :dated , :title , :detail , :status , :folder_id , :type_id , :confidential_id , :department_id)
+      params.require(:document).permit(:number , :dated , :title , :detail , :status , :folder_id , :type_id , :confidential_id , :department_id, images:[])
     end
 
 end
