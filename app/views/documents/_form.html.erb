@@ -45,6 +45,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :แนบไฟล์ , class:'control-label' %>
+    <%= form.file_field :images , class: 'form-control' , multiple: true  %>
+  </div>
+
+  <div class="form-group">
     <%= form.submit 'บันทึกผล' , class: 'btn btn-primary btn-rounded btn-block' %>
     <%= link_to 'ย้อนกลับ' ,  documents_path , class: 'btn btn-warning btn-rounded btn-block' %>
   </div>

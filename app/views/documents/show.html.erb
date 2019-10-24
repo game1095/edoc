@@ -96,7 +96,9 @@
         <h3>รูปภาพที่แนบ</h3>
       </div>
       <div class="ibox-content">
-
+        <% (0...@document.images.count).each do |img| %>
+          <%= image_tag(@document.thumbnail(img)) %>
+        <% end %>
       </div>
     </div>
   </div>
