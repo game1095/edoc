@@ -1,54 +1,50 @@
 <%= form_for @document do |form| %>
-  <div class="form-group">
-    <%= form.label :เลขที่รับ , class: 'label-control'%>
-    <%= form.text_field :number , class:'form-control' %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= form.label :เลขที่รับ , class: 'label-control'%>
+        <%= form.text_field :number , class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :ลงวันที่  , class: 'label-control' %>
+        <%= form.date_field :dated , class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :หัวข้อ , class: 'label-control' %>
+        <%= form.text_field :title ,  class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :รายละเอียด , class: 'label-control' %>
+        <%= form.text_area :detail , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :แนบไฟล์ , class:'control-label' %>
+        <%= form.file_field :images , class: 'form-control' , multiple: true %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= form.label :ประเภทเอกสาร , class: 'label-control' %>
+        <%= form.collection_select :type_id , Type.all , :id , :name , {prompt:'โปรดระบุประเภทเอกสาร'} , class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :แฟ้ม , class: 'label-control' %>
+        <%= form.collection_select :folder_id , Folder.all , :id , :name , {prompt:'โปรดระบุแฟ้ม' }  ,class:'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= form.label :เอกสารประจำแผนก %>
+        <%= form.collection_select :department_id , Department.all , :id , :name , {prompt: 'โปรดระบุแผนก'} , class:'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
+        <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'}  , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :หมายเหตุ , class:'label-control' %>
+        <%= form.text_area :remark , class:'form-control' %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :ลงวันที่  , class: 'label-control' %>
-    <%= form.date_field :dated , class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :หัวข้อ , class: 'label-control' %>
-    <%= form.text_field :title ,  class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :รายละเอียด , class: 'label-control' %>
-    <%= form.text_area :detail , class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-      <%= form.label :ประเภทเอกสาร , class: 'label-control' %>
-      <%= form.collection_select :type_id , Type.all , :id , :name , {prompt:'โปรดระบุประเภทเอกสาร'} , required:true , class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :แฟ้มหมายเลข , class: 'label-control' %>
-    <%= form.collection_select :folder_id , Folder.all , :id , :name , {prompt:'โปรดระบุแฟ้ม' } , required:true ,class:'form-control'%>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :เอกสารประจำแผนก %>
-    <%= form.collection_select :department_id , Department.all , :id , :name , {prompt: 'โปรดระบุแผนก'} , required: true , class:'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
-    <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'} , required: true , class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :สถานะ , class:'label-control' %>
-    <%= form.text_field :status , class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :แนบไฟล์ , class:'control-label' %>
-    <%= form.file_field :images , class: 'form-control' , multiple: true  %>
-  </div>
-
   <div class="form-group">
     <%= form.submit 'บันทึกผล' , class: 'btn btn-primary btn-rounded btn-block' %>
     <%= link_to 'ย้อนกลับ' ,  documents_path , class: 'btn btn-warning btn-rounded btn-block' %>
