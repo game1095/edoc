@@ -1,0 +1,21 @@
+<%= form_for @folder do |form| %>
+  <div class="form-group">
+    <%= form.label :เลขแฟ้ม , class: 'label-control'%>
+    <%= form.text_field :number , class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ชื่อแฟ้ม  , class: 'label-control' %>
+    <%= form.text_field :name , class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :รายละเอียด , class: 'label-control' %>
+    <%= form.text_area :description ,  class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit 'บันทึกผล' , class: 'btn btn-primary btn-rounded btn-block' %>
+    <%= link_to 'ย้อนกลับ' ,  folders_path , class: 'btn btn-warning btn-rounded btn-block' %>
+  </div>
+<% end %>
