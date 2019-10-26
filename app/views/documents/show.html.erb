@@ -47,7 +47,7 @@
             <strong>แฟ้ม</strong>
           </div>
           <div class="label-control">
-            หมายเลข <%= @document.folder.number %> (<%= @document.folder.name %>)
+            หมายเลข <%= @document.folder_check %>)
           </div>
         </div>
 
@@ -56,7 +56,7 @@
             <strong>ประเภทของเอกสาร</strong>
           </div>
           <div class="label-control">
-            <%= @document.type.name %>
+            <%= @document.type_check %>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
             <strong>ชั้นความลับ</strong>
           </div>
           <div class="label-control">
-            <%= @document.confidential.name %>
+            <%= @document.confidential_check %>
           </div>
         </div>
 

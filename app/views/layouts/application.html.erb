@@ -24,7 +24,7 @@
                 </span>
                 <h4><%= current_user ? current_user.first_name : "" %>  <%= current_user ? current_user.last_name : "" %></h4>
                 <h4><%= current_user ? current_user.position.name : "" %></h4>
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>    
+                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                   <span class="clear"> <span class="block m-t-xs">
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -43,10 +43,10 @@
                   <%= link_to '<i class="fa fa-car"></i> จัดการประเภทของเอกสาร'.html_safe ,types_path ,class: 'nav-label' %>
                 </li>
                 <li>
-                  <%= link_to '<i class="fa fa-eye"></i> ติดตามเอกสาร'.html_safe   ,class: 'nav-label' %>
+                  <%= link_to '<i class="fa fa-car"></i> ส่งออกเอกสาร'.html_safe   ,class: 'nav-label' %>
                 </li>
                 <li>
-                  <%= link_to '<i class="fa fa-car"></i> ส่งออกเอกสาร'.html_safe   ,class: 'nav-label' %>
+                  <%= link_to '<i class="fa fa-eye"></i> ติดตามเอกสาร'.html_safe   ,class: 'nav-label' %>
                 </li>
                 <li>
 

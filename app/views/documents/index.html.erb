@@ -38,9 +38,9 @@
                 <td><%= n.number %></td>
                 <td><%= n.dated %></td>
                 <td><%= n.title %></td>
-                <td><%= n.type.name %></td>
-                <td><%= n.folder.number %> (<%= n.folder.name%>)</td>
-                <td><%= n.department.name %></td>
+                <td><%= n.type_check %></td>
+                <td><%= n.folder_check%></td>
+                <td><%= n.department_check %></td>
                 <td>
                   <%= link_to  document_path(n.id) , class: 'btn btn-primary btn-circle' do %>
                     <i class="fa fa-info-circle" ></i>
