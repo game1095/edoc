@@ -14,12 +14,12 @@
         <%= form.text_field :title ,  class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= form.label :รายละเอียด , class: 'label-control' %>
-        <%= form.text_area :detail , class: 'form-control' %>
-      </div>
-      <div class="form-group">
         <%= form.label :แนบไฟล์ , class:'control-label' %>
         <%= form.file_field :images , class: 'form-control' , multiple: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :รายละเอียด , class: 'label-control' %>
+        <%= form.text_area :detail , class: 'form-control' %>
       </div>
     </div>
     <div class="col-lg-6">
@@ -39,6 +39,14 @@
         <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
         <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'}  , class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <%= form.label :สถานะ , class: 'label-control' %>
+        <%= form.collection_select :status_id , Status.all , :id , :name , {prompt: 'โปรดระบุสถานะ'} , class:'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
       <div class="form-group">
         <%= form.label :หมายเหตุ , class:'label-control' %>
         <%= form.text_area :remark , class:'form-control' %>

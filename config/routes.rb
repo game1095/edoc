@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :documents
   resources :folders
   resources :types
+  resources :tracks , only:[:index]
   devise_scope :user do
     authenticated :user do
       root 'documents#index', as: :authenticated_root

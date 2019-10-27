@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_052224) do
+ActiveRecord::Schema.define(version: 2019_10_26_055058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_052224) do
     t.string "status"
     t.string "paper"
     t.string "remark"
+    t.bigint "status_id"
     t.index ["confidential_id"], name: "index_documents_on_confidential_id"
     t.index ["department_id"], name: "index_documents_on_department_id"
     t.index ["folder_id"], name: "index_documents_on_folder_id"
+    t.index ["status_id"], name: "index_documents_on_status_id"
     t.index ["type_id"], name: "index_documents_on_type_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
@@ -79,6 +81,12 @@ ActiveRecord::Schema.define(version: 2019_10_26_052224) do
   end
 
   create_table "positions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
