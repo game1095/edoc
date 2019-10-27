@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h3>ข้อมูลเพิ่มเติม</h3>
+      </div>
+      <div class="ibox-content">
+
+        <div class="form-group">
+          <div class="label-control">
+            <strong>ชื่อประเภท</strong>
+          </div>
+          <div class="label-control">
+            <%= @type.name %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h3>เอกสารในประเภทนี้</h3>
+      </div>
+      <div class="ibox-content">
+        <div class="form-group">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ชื่อเอกสาร</th>
+                <th>ลงวันที่</th>
+                <th>แฟ้ม</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @document_type.each do |n|  %>
+              <tr>
+                  <td><%= n.title %></td>
+                  <td><%= n.dated %></td>
+                  <td><%= n.folder_check %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

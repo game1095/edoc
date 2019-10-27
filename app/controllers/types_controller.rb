@@ -31,6 +31,11 @@ class TypesController < ApplicationController
     end
   end
 
+  def show
+    @type = Type.find(params[:id])
+    @document_type = @type.document
+  end
+
   private
     def type_params
       params.require(:folder).permit(:name)

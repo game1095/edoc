@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox folat-e-margins">
+      <div class="ibox-title">
+        <h3>เอกสารที่ ดำเนินการแล้ว</h3>
+      </div>
+      <div class="ibox-content">
+        <div class="table-responsive">
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+              <!-- <label>
+                "ค้นหา:"
+                <input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0">
+              </label> -->
+            </div>
+            <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0"
+            aria-describedby="DataTables_Table_0_info" role="grid">
+            <thead>
+              <tr>
+                <th>หัวข้อ</th>
+                <th>ประเภทของเรื่อง</th>
+                <th>ประจำแผนก</th>
+                <th>สถานะ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @document_complete.each do |n| %>
+              <tr>
+                <td><%= n.title %></td>
+                <td><%= n.type_check %></td>
+                <td><%= n.department_check %></td>
+                <td><%= n.status_check %></td>
+                <td>
+                  <!--  -->
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="ibox folat-e-margins">
+      <div class="ibox-title">
+        <h3>เอกสารที่ รอดำเนินการ</h3>
+      </div>
+      <div class="ibox-content">
+        <div class="table-responsive">
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+              <!-- <label>
+                "ค้นหา:"
+                <input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0">
+              </label> -->
+            </div>
+            <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0"
+            aria-describedby="DataTables_Table_0_info" role="grid">
+            <thead>
+              <tr>
+                <th>หัวข้อ</th>
+                <th>ประเภทของเรื่อง</th>
+                <th>ประจำแผนก</th>
+                <th>สถานะ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @document_uncomplete.each do |n| %>
+              <tr>
+                <td><%= n.title %></td>
+                <td><%= n.type_check %></td>
+                <td><%= n.department_check %></td>
+                <td><%= n.status_check %></td>
+                <td>
+                  <!--  -->
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

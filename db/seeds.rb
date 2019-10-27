@@ -5,4 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Folder.create(number: 102 , name: 'ทดสอบ' , description: 'ทดสอบ')
+Status.create(id:1 , name: "ดำเนินการแล้ว")
+Status.create(id:2 , name: "รอดำเนินการ")

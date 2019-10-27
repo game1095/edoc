@@ -2,8 +2,9 @@ class Document < ApplicationRecord
   belongs_to :type , optional: true
   belongs_to :folder , optional: true
   belongs_to :confidential , optional: true
-  belongs_to :user
   belongs_to :department, optional: true
+  belongs_to :status, optional: true
+  belongs_to :user
   has_many_attached :images
 
   def thumbnail input
@@ -14,7 +15,7 @@ class Document < ApplicationRecord
    if self.type != nil
      return self.type.name
    else
-     return ""
+     return "-"
    end
   end
 
@@ -22,7 +23,7 @@ class Document < ApplicationRecord
    if self.folder != nil
      return "#{self.folder.number}"+" (#{self.folder.name})"
    else
-     return ""
+     return "-"
    end
   end
 
@@ -30,7 +31,7 @@ class Document < ApplicationRecord
     if self.confidential != nil
       return self.confidential.name
     else
-      return ""
+      return "-"
     end
   end
 
@@ -38,8 +39,16 @@ class Document < ApplicationRecord
    if self.department != nil
      return self.department.name
    else
-     return ""
+     return "-"
    end
   end
 
+  def status_check
+    if self.status != nil
+      return self.status.name
+    else
+      return "-"
+    end
   end
+
+end
