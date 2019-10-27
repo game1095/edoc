@@ -1,10 +1,10 @@
 class Document < ApplicationRecord
-  belongs_to :type , optional: true
   belongs_to :folder , optional: true
   belongs_to :confidential , optional: true
-  belongs_to :department, optional: true
   belongs_to :status, optional: true
   belongs_to :user
+  has_and_belongs_to_many :department , optional: true
+  has_and_belongs_to_many :type , optional: true
   has_many_attached :images
 
   def thumbnail input

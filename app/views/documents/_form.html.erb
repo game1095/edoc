@@ -1,6 +1,6 @@
 <%= form_for @document do |form| %>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div class="form-group">
         <%= form.label :เลขที่รับ , class: 'label-control'%>
         <%= form.text_field :number , class:'form-control' %>
@@ -22,19 +22,12 @@
         <%= form.text_area :detail , class: 'form-control' %>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="form-group">
-        <%= form.label :ประเภทเอกสาร , class: 'label-control' %>
-        <%= form.collection_select :type_id , Type.all , :id , :name , {prompt:'โปรดระบุประเภทเอกสาร'} , class:'form-control' %>
-      </div>
+    <div class="col-lg-4">
       <div class="form-group">
         <%= form.label :แฟ้ม , class: 'label-control' %>
         <%= form.collection_select :folder_id , Folder.all , :id , :name , {prompt:'โปรดระบุแฟ้ม' }  ,class:'form-control'%>
       </div>
-      <div class="form-group">
-        <%= form.label :เอกสารประจำแผนก %>
-        <%= form.collection_select :department_id , Department.all , :id , :name , {prompt: 'โปรดระบุแผนก'} , class:'form-control' %>
-      </div>
+
       <div class="form-group">
         <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
         <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'}  , class: 'form-control' %>
@@ -42,6 +35,16 @@
       <div class="form-group">
         <%= form.label :สถานะ , class: 'label-control' %>
         <%= form.collection_select :status_id , Status.all , :id , :name , {prompt: 'โปรดระบุสถานะ'} , class:'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= form.label :ประเภทเอกสาร , class: 'label-control' %>
+        <%= form.collection_select :type_ids, Type.all  ,:id , :name,{ prompt: "-"},{ multiple: true, size: 7 , class:'form-control' } %>
+      </div>
+      <div class="form-group">
+        <%= form.label :เอกสารประจำแผนก %>
+        <%= form.collection_select :department_ids, Department.all  ,:id , :name,{ prompt: "-"},{ multiple: true, size: 7 , class:'form-control' } %>
       </div>
     </div>
   </div>
