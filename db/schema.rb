@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_055058) do
+ActiveRecord::Schema.define(version: 2019_10_27_045333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,28 +48,36 @@ ActiveRecord::Schema.define(version: 2019_10_26_055058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "departments_documents", id: false, force: :cascade do |t|
+    t.bigint "department_id", null: false
+    t.bigint "document_id", null: false
+    t.index ["department_id", "document_id"], name: "index_departments_documents_on_department_id_and_document_id"
+    t.index ["document_id", "department_id"], name: "index_departments_documents_on_document_id_and_department_id"
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "number"
     t.date "dated"
     t.string "title"
     t.text "detail"
+    t.text "remark"
     t.bigint "folder_id"
-    t.bigint "type_id"
     t.bigint "confidential_id"
-    t.bigint "department_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
-    t.string "paper"
-    t.string "remark"
     t.bigint "status_id"
     t.index ["confidential_id"], name: "index_documents_on_confidential_id"
-    t.index ["department_id"], name: "index_documents_on_department_id"
     t.index ["folder_id"], name: "index_documents_on_folder_id"
     t.index ["status_id"], name: "index_documents_on_status_id"
-    t.index ["type_id"], name: "index_documents_on_type_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "documents_types", id: false, force: :cascade do |t|
+    t.bigint "type_id", null: false
+    t.bigint "document_id", null: false
+    t.index ["document_id", "type_id"], name: "index_documents_types_on_document_id_and_type_id"
+    t.index ["type_id", "document_id"], name: "index_documents_types_on_type_id_and_document_id"
   end
 
   create_table "folders", force: :cascade do |t|
@@ -123,9 +131,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_055058) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "documents", "confidentials"
-  add_foreign_key "documents", "departments"
   add_foreign_key "documents", "folders"
-  add_foreign_key "documents", "types"
   add_foreign_key "documents", "users"
   add_foreign_key "users", "departments"
   add_foreign_key "users", "positions"

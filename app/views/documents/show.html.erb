@@ -56,7 +56,9 @@
             <strong>ประเภทของเอกสาร</strong>
           </div>
           <div class="label-control">
-            <%= @document.type_check %>
+            <% @document_type.each do |n| %>
+                <%= n.name %>
+            <% end %>
           </div>
         </div>
 
@@ -83,7 +85,7 @@
             <strong>สถานะ</strong>
           </div>
           <div class="label-control">
-            <%= @document.status %>
+            <%= @document.status.name %>
           </div>
         </div>
 
