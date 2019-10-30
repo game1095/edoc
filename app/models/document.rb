@@ -8,7 +8,7 @@ class Document < ApplicationRecord
   has_many_attached :images
 
   def thumbnail input
-    return self.images[input].variant(resize: "300x300!").processed
+    return self.images[input].variant(resize: "150x150!").processed
   end
 
   def type_check
