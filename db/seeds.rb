@@ -5,5 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Status.create(id:1 , name: "ดำเนินการแล้ว")
-Status.create(id:2 , name: "รอดำเนินการ")
+
+
+#Statuses
+Status.create(id:1 , name: "รับเข้าระบบแล้ว")
+Status.create(id:2 , name: "ส่งมอบแผนกที่เกี่ยวข้อง")
+Status.create(id:3 , name: "รอแผนกดำเนินการ")
+Status.create(id:4 , name: "ดำเนินการเสร็จสิ้นแล้ว")
+Status.create(id:5 , name: "จัดส่งหน่วยงานที่เกี่ยวข้องแล้ว")
