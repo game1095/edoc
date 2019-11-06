@@ -38,7 +38,7 @@ class TypesController < ApplicationController
 
   private
     def type_params
-      params.require(:folder).permit(:name)
+      params.require(:type).permit(:name)
     end
 
 end
