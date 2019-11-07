@@ -2,7 +2,7 @@ class SentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @documents = Document.all
+    @documents = Document.where(status_id: 2)
     @sent = Sent.all
   end
 
@@ -12,7 +12,10 @@ class SentsController < ApplicationController
 
   def create
     @sent = Sent.create(sent_params)
+    id = @sent.document_ids
+
     if @sent.save
+      Document.where(id: id).update(status_id:2)
       redirect_to sents_path , flash: {notice: 'จัดส่งเอกสารแล้ว'}
     else
       render 'new' , flash: {notice: 'จัดส่งเอกสารไม่สำเร็จ'}

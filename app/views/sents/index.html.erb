@@ -30,9 +30,18 @@
               </tr>
             </thead>
             <tbody>
+              <% @documents.each do |n| %>
               <tr>
-                
+                <td><%= n.title %></td>
+                <td>
+                  <% n.type.each do |type| %>
+                    <p><%= type.name %></p>
+                  <% end %>
+                </td>
+                <td><%= n.status.name %></td>
+                <td></td>
               </tr>
+              <% end %>
             </tbody>
             </table>
           </div>
