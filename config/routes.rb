@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'types/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :sents
   devise_for :users
   resources :documents
   resources :folders
