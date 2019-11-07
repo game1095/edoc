@@ -27,8 +27,6 @@
                 <th>ลงวันที่</th>
                 <th>หัวข้อ</th>
                 <th>ประเภทของเรื่อง</th>
-                <th>แฟ้ม</th>
-                <th>ประจำแผนก</th>
                 <th>สถานะ</th>
                 <th></th>
               </tr>
@@ -44,14 +42,6 @@
                   <p>
                     <%= type.name %>
                   </p>
-                  <% end %>
-                </td>
-                <td><%= document.folder_check%></td>
-                <td>
-                  <% document.department.each do |department| %>
-                    <p>
-                      <%= department.name %>
-                    </p>
                   <% end %>
                 </td>
                 <td><%= document.status_check %></td>

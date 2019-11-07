@@ -24,11 +24,6 @@
     </div>
     <div class="col-lg-4">
       <div class="form-group">
-        <%= form.label :แฟ้ม , class: 'label-control' %>
-        <%= form.collection_select :folder_id , Folder.all , :id , :name , {prompt:'โปรดระบุแฟ้ม' }  ,class:'form-control'%>
-      </div>
-
-      <div class="form-group">
         <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
         <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'}  , class: 'form-control' %>
       </div>
@@ -41,10 +36,6 @@
       <div class="form-group">
         <%= form.label :ประเภทเอกสาร , class: 'label-control' %>
         <%= form.collection_select :type_ids, Type.all  ,:id , :name,{ prompt: "-"},{ multiple: true, size: 7 , class:'form-control' } %>
-      </div>
-      <div class="form-group">
-        <%= form.label :เอกสารประจำแผนก %>
-        <%= form.collection_select :department_ids, Department.all  ,:id , :name,{ prompt: "-"},{ multiple: true, size: 7 , class:'form-control' } %>
       </div>
     </div>
   </div>
