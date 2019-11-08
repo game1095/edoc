@@ -36,7 +36,7 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @document_type = @document.type
-    @document_department = @document.department
+    #@document_department = @document.department
     # @document_similar = @document.type.where()
 
   end
