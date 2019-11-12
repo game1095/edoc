@@ -1,0 +1,22 @@
+<div class="middle-box text-center loginscreen animate fadeInDown">
+  <div class="">
+    <h1 class="logo-name">THP</h1>
+  </div>
+  <h3>เข้าสู่ระบบสารบรรณอิเล็กทรอนิกส์</h3>
+  <p>ลงชื่อเข้าใช้งานเพื่อดำเนินการต่อไป</p>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:'form-control' , placeholder:'ชื่อผู้ใช้งาน' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, autocomplete: "current-password" , class:'form-control' , placeholder:'รหัสผ่าน' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ลงชื่อเข้าใช้งาน" , class: 'btn btn-primary block full-width m-b' %>
+    </div>
+  <% end %>
+
+</div>
