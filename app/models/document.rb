@@ -3,8 +3,8 @@ class Document < ApplicationRecord
   belongs_to :confidential , optional: true
   belongs_to :status, optional: true
   belongs_to :user
-  belongs_to :sent , optional: true
-  # has_and_belongs_to_many :department , optional: true
+  # belongs_to :sent , optional: true
+  has_and_belongs_to_many :department , optional: true
   has_and_belongs_to_many :type , optional: true
   has_many_attached :images
 

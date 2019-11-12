@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :folders
   resources :types
   resources :tracks , only:[:index]
+  get 'sent_document' , to: 'documents#sent_document' , as: 'sent_document'
   devise_scope :user do
     authenticated :user do
       root 'documents#index', as: :authenticated_root

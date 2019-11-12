@@ -1,0 +1,44 @@
+<h1>เอกสารส่งมอบจากแผนกธุรการ</h1>
+<b> เรียน ผช.หน.ศป.นครสวรรค์,
+  <% @document.department.each do |n| %>
+    <%= n.name %>,
+  <% end %>
+</b>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; แผนกธุรการขอจัดส่งบันทึกข้อความที่เกี่ยวข้องกับแผนกของท่าน โดยมีรายการดังนี้</p>
+<h3>ตารางเอกสารที่เกี่ยวข้องแผนกฯ</h3>
+<!-- ตารางหัวข้อ -->
+<table border="1px">
+  <thead>
+    <tr>
+      <th>หัวข้อ</th>
+      <th>กำหนดส่ง</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @document.title %></td>
+    <td></td>
+  </tbody>
+</table>
+
+้<h3>ตารางดาวโหลดไฟล์เอกสาร</h3>
+<!-- ตารางโหลดรูป -->
+<table border="1px">
+  <thead>
+    <tr>
+      <th>ชื่อไฟล์</th>
+      <th>ลิ้งดาวโหลด</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @document.images.each do |n| %>
+      <tr>
+        <td align="center">
+          <%= n.filename %>
+        </td>
+        <td><%= link_to "ดาวน์โหลด" , rails_blob_url(n , disposition: "attachment") %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; จึงเรียนมาเพื่อโปรดทราบ จักขอบคุณมาก</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; หน.ศป.นครสวรรค์</p>

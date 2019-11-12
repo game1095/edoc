@@ -7,7 +7,6 @@ class CreateDocuments < ActiveRecord::Migration[5.2]
       t.text :detail
       t.text :remark
 
-      t.references :sent , foreign_key: true
       t.references :folder , foreign_key: true
       t.references :confidential , foreign_key: true
       t.references :user , foreign_key: true
