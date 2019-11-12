@@ -36,8 +36,6 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @document_type = @document.type
-    #@document_department = @document.department
-    # @document_similar = @document.type.where()
 
   end
 
@@ -45,8 +43,29 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
     if @document.destroy
       redirect_to documents_path , flash: {notice: 'ลบเอกสารเรียบร้อยแล้ว'}
-
     end
+  end
+
+  def sent_document
+    @document = Document.find_by(params[:id])
+    @query = User.where(department_id: [@document.department.ids])
+    @email = @query.each { |n| n.email}
+    # puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{a.inspect}"
+    # if @document.department_ids != nil
+      if @document.update(status_id: 2)
+        DocumentMailer.send_document(@document,@email).deliver
+
+        # may be unnessary
+        # @query.each do |n|
+        #    n.email
+        # end
+        # @document.department.each do |n|
+        #   n.name
+        # end
+        redirect_to sents_path
+      else
+        redirect_to documents_path
+      end
   end
 
   private

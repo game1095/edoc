@@ -55,6 +55,7 @@
                                     <p><%= type.name %></p>
                                   <% end %>
                                 </td>
+                                <td></td>
                                 <td><%= n.status_check %></td>
                                 <td>
                                   <!--  -->
@@ -102,6 +103,11 @@
                                 <td>
                                   <% n.type.each do |type| %>
                                     <p><%= type.name %></p>
+                                  <% end %>
+                                </td>
+                                <td>
+                                  <% n.department.each do |n| %>
+                                    <p><%= n.name %></p>
                                   <% end %>
                                 </td>
                                 <td><%= n.status_check %></td>
