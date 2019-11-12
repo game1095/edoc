@@ -6,30 +6,35 @@
         <%= form.text_field :number , class:'form-control' %>
       </div>
       <div class="form-group">
+        <%= form.label :เลขที่เอกสาร , class: 'label-control'%>
+        <%= form.text_field :document_number , class: 'form-control' , value: 'ปณท ปข.6(60010)/-' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :ประวันที่ , class:'label-control' %>
+        <%= form.date_field :date , class: 'form-control' , value: Time.now.strftime('%Y-%m-%d') %>
+      </div>
+      <div class="form-group">
         <%= form.label :ลงวันที่  , class: 'label-control' %>
         <%= form.date_field :dated , class:'form-control' %>
       </div>
+
+    </div>
+    <div class="col-lg-4">
       <div class="form-group">
         <%= form.label :หัวข้อ , class: 'label-control' %>
         <%= form.text_field :title ,  class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= form.label :แนบไฟล์ , class:'control-label' %>
-        <%= form.file_field :images , class: 'form-control' , multiple: true %>
-      </div>
-      <div class="form-group">
         <%= form.label :รายละเอียด , class: 'label-control' %>
         <%= form.text_area :detail , class: 'form-control' %>
       </div>
-    </div>
-    <div class="col-lg-4">
       <div class="form-group">
         <%= form.label :ลำดับชั้นความลับ , class:'label-control' %>
         <%= form.collection_select :confidential_id , Confidential.all , :id , :name , {prompt: 'โปรดระบุชั้นความลับ'}  , class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= form.label :สถานะ , class: 'label-control' %>
-        <%= form.collection_select :status_id , Status.all , :id , :name , {prompt: 'โปรดระบุสถานะ'} , class:'form-control' %>
+        <%= form.label :แนบไฟล์ , class:'control-label' %>
+        <%= form.file_field :images , class: 'form-control' , multiple: true %>
       </div>
     </div>
     <div class="col-lg-4">
