@@ -5,10 +5,7 @@
         <%= form.label :เลขที่รับ , class: 'label-control'%>
         <%= form.text_field :number , class:'form-control' %>
       </div>
-      <div class="form-group">
-        <%= form.label :เลขที่เอกสาร , class: 'label-control'%>
-        <%= form.text_field :document_number , class: 'form-control' , value: 'ปณท ปข.6(60010)/-' %>
-      </div>
+
       <div class="form-group">
         <%= form.label :ประวันที่ , class:'label-control' %>
         <%= form.date_field :date , class: 'form-control' , value: Time.now.strftime('%Y-%m-%d') %>
