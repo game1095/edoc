@@ -58,7 +58,7 @@
                                 <td></td>
                                 <td><%= n.status_check %></td>
                                 <td>
-                                  <!--  -->
+                                  <%= n.updated_at %>
                                 </td>
                               </tr>
                               <% end %>
@@ -112,7 +112,7 @@
                                 </td>
                                 <td><%= n.status_check %></td>
                                 <td>
-                                  <!--  -->
+                                  <%= n.updated_at.strftime("%d %B %Y") %>
                                 </td>
                               </tr>
                               <% end %>

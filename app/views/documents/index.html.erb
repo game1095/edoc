@@ -35,7 +35,7 @@
               <% @documents.each do |document| %>
               <tr>
                 <td><%= document.number %></td>
-                <td><%= document.dated %></td>
+                <td><%= document.dated_format %></td>
                 <td><%= document.title %></td>
                 <td>
                   <% document.type.each do |type| %>
