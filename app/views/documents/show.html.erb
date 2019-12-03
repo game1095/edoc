@@ -128,11 +128,13 @@
             </tr>
           </thead>
           <tbody>
+            <% @document_relate.each do |n| %>
             <tr>
-              <td>t</td>
-              <td>t</td>
-              <td></td>
+              <td><%= n.number %></td>
+              <td><%= link_to n.title , document_path(n.id) %></td>
+              <td><%= n.dated %></td>
             </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

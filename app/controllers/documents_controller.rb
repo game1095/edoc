@@ -36,6 +36,13 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @document_type = @document.type
+    # DEBUG
+    # a = Type.where(id: @document_type.ids)
+    a = @document.type.where(id: @document_type.ids)
+    a.each do |n|
+      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{@document_relate = n.document.inspect}"
+      return @document_relate = n.document
+    end
 
   end
 
@@ -50,18 +57,7 @@ class DocumentsController < ApplicationController
     @document = Document.find_by(params[:id])
     @query = User.where(department_id: [@document.department.ids])
     @email = @query.each { |n| n.email}
-    # puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{a.inspect}"
-    # if @document.department_ids != nil
       if @document.update(status_id: 2)
-        DocumentMailer.send_document(@document,@email).deliver
-
-        # may be unnessary
-        # @query.each do |n|
-        #    n.email
-        # end
-        # @document.department.each do |n|
-        #   n.name
-        # end
         redirect_to sents_path
       else
         redirect_to documents_path
