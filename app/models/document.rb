@@ -52,4 +52,20 @@ class Document < ApplicationRecord
     end
   end
 
+  def dated_format
+    if self.dated != nil
+      return self.dated.strftime("%d %B %Y")
+    else
+      return "-"
+    end
+  end
+
+  def date_format
+    if self.date != nil
+      return self.date.strftime("%d %B %Y")
+    else
+      return "-"
+    end
+  end
+
 end
