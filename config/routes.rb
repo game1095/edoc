@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :types
   resources :tracks , only:[:index]
   get 'sent_document' , to: 'documents#sent_document' , as: 'sent_document'
+  get 'dashboards' , to: 'dashboards#index'
   devise_scope :user do
     authenticated :user do
       root 'documents#index', as: :authenticated_root

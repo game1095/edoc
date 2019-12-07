@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <span class="label label-success pull-right">จำนวนทั้งหมด</span>
+        <h5>เอกสารที่รับเข้าระบบแล้ว</h5>
+      </div>
+      <div class="ibox-content">
+        <h1 class="no-margins"><%= @document_count %></h1>
+        <small>ฉบับ</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <span class="label label-success pull-right">จำนวนทั้งหมด</span>
+        <h5>ส่งมอบแผนกที่เกี่ยวข้อง</h5>
+      </div>
+      <div class="ibox-content">
+        <h1 class="no-margins"><%= @document_department %></h1>
+        <small>ฉบับ</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <span class="label label-success pull-right">จำนวนทั้งหมด</span>
+        <h5>ส่งมอบแผนกที่เกี่ยวข้อง</h5>
+      </div>
+      <div class="ibox-content">
+        <h1 class="no-margins"><%= @document_department %></h1>
+        <small>ฉบับ</small>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Graph -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>จำนวนเอกสารแต่ละประเภท</h5>
+      </div>
+      <div class="ibox-content">
+        <div class="flot-chart">
+          <div class="flot-chart-pie-content" id="type-pie-chart" style="padding: 0px; position: relative;">
+            <canvas class="flot-base" id="canvas" width="200" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;">
+            <canvas class="flot-overlay" width="200" height="200" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>กราฟแสดงจำนวนเอกสารในเดือนปัจจุบัน</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5></h5>
+      </div>
+    </div>
+  </div>
+</div>

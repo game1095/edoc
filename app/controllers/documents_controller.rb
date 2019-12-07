@@ -37,10 +37,8 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
     @document_type = @document.type
     # DEBUG
-    # a = Type.where(id: @document_type.ids)
     a = @document.type.where(id: @document_type.ids)
     a.each do |n|
-      puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{@document_relate = n.document.inspect}"
       return @document_relate = n.document
     end
 
@@ -62,6 +60,10 @@ class DocumentsController < ApplicationController
       else
         redirect_to documents_path
       end
+  end
+
+  def dashboard
+
   end
 
   private
