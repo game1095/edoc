@@ -2,9 +2,9 @@
   <div class="col-lg-12">
   <div class="ibox float-e-margins">
       <div class="ibox-title">
-        <h3>การจัดส่งเอกสารให้แผนก / หน่วยงานที่เกี่ยวข้อง</h3>
+        <h3>ส่งออกเอกสาร</h3>
 
-        <!-- Flash Notice -->
+         <!-- Flash Notice -->
         <% if flash[:notice] %>
           <div class="notice alert alert-info alert-dismissable"><%= flash[:notice] %></div>
         <% end %>
@@ -17,35 +17,31 @@
                 "ค้นหา:"
                 <input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0">
               </label> -->
+              <%= link_to 'ส่งออกเอกสาร' , new_sent_path , class:'btn btn-primary dim keep-right' %>
             </div>
             <table class="table table-striped table-bordered table-hover dataTables-example dataTable" id="DataTables_Table_0"
             aria-describedby="DataTables_Table_0_info" role="grid">
             <thead>
               <tr>
-                <th>เลขที่รับ</th>
-                <th>หัวข้อ</th>
-                <th>แผนกปลายทาง</th>
-                <th></th>
+                <th>ชื่อเรื่อง</th>
+                <th>สถานะ</th>
+                <th>จัดส่งเมื่อ</th>
               </tr>
             </thead>
             <tbody>
-              <% @documents.each do |document| %>
+              <% @sents.each do |n| %>
               <tr>
-                <td><%= document.number %></td>
-                <td><%= document.title %></td>
                 <td>
-                  <% document.department.each do |n| %>
-                    <%= n.name %>,
+                  <% n.document.each do |doc| %>
+                    <%= doc.title %> /
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to sent_document_path(document.id) , class: 'btn btn-primary btn-circle' do %>
-                    <i class="fa fa-send-o" ></i>
-                  <% end %>
-                  <%= link_to  edit_document_path(document.id) , class: 'btn btn-success btn-circle' do %>
-                    <i class="fa fa-edit" ></i>
+                  <% n.department.each do |dpt|  %>
+                    <%= dpt.name %>
                   <% end %>
                 </td>
+                <td><%= n.created_at.strftime("%d %B %Y") %></td>
               </tr>
               <% end %>
             </tbody>
