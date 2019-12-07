@@ -44,15 +44,10 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
+    t.bigint "sent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "departments_documents", id: false, force: :cascade do |t|
-    t.bigint "department_id", null: false
-    t.bigint "document_id", null: false
-    t.index ["department_id", "document_id"], name: "index_departments_documents_on_department_id_and_document_id"
-    t.index ["document_id", "department_id"], name: "index_departments_documents_on_document_id_and_department_id"
+    t.index ["sent_id"], name: "index_departments_on_sent_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -61,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
     t.string "title"
     t.text "detail"
     t.text "remark"
+    t.bigint "sent_id"
     t.bigint "folder_id"
     t.bigint "confidential_id"
     t.bigint "user_id"
@@ -71,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
     t.date "date"
     t.index ["confidential_id"], name: "index_documents_on_confidential_id"
     t.index ["folder_id"], name: "index_documents_on_folder_id"
+    t.index ["sent_id"], name: "index_documents_on_sent_id"
     t.index ["status_id"], name: "index_documents_on_status_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
@@ -92,6 +89,11 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
 
   create_table "positions", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sents", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -132,8 +134,10 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "departments", "sents"
   add_foreign_key "documents", "confidentials"
   add_foreign_key "documents", "folders"
+  add_foreign_key "documents", "sents"
   add_foreign_key "documents", "users"
   add_foreign_key "users", "departments"
   add_foreign_key "users", "positions"

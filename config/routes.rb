@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   get 'types/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :sents
+  get 'sent_document' , to: 'documents#sent_document' , as: 'sent_document'
+  get 'dashboards' , to: 'dashboards#index'
   devise_for :users
+  resources :sents
   resources :documents
   resources :folders
   resources :types
   resources :tracks , only:[:index]
-  get 'sent_document' , to: 'documents#sent_document' , as: 'sent_document'
-  get 'dashboards' , to: 'dashboards#index'
   devise_scope :user do
     authenticated :user do
       root 'documents#index', as: :authenticated_root
