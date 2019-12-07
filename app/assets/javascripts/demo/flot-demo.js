@@ -302,7 +302,3 @@ $(function() {
         doPlot($(this).text());
     });
 });
-
-
-
-
