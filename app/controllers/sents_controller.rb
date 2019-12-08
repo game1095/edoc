@@ -1,6 +1,7 @@
 class SentsController < ApplicationController
   before_action :authenticate_user!
-
+  load_and_authorize_resource
+  
   def index
     @sents = Sent.all
   end
