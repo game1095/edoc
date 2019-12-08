@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :document
   belongs_to :department
   belongs_to :position
+  belongs_to :level
 end

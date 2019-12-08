@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   def index
     @documents = Document.where(status_id: 1)
 

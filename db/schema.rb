@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "levels", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -125,10 +132,12 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
     t.string "last_name"
     t.bigint "department_id"
     t.bigint "position_id"
+    t.bigint "level_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_users_on_department_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["level_id"], name: "index_users_on_level_id"
     t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -140,5 +149,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_170753) do
   add_foreign_key "documents", "sents"
   add_foreign_key "documents", "users"
   add_foreign_key "users", "departments"
+  add_foreign_key "users", "levels"
   add_foreign_key "users", "positions"
 end

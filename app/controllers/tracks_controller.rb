@@ -1,5 +1,6 @@
 class TracksController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource class: TracksController
 
   def index
     @received_document = Document.where(status_id: 1)
