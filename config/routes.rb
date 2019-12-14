@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   get 'types/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'sent_document' , to: 'documents#sent_document' , as: 'sent_document'
+  # get 'sents' , to: 'documents#sents' , as: 'sents'
+  # get 'new_sent_document' , to: 'documents#new_sent_document' , as: 'new_sent_document'
+
+  resources :sents , only: [:index , :new, :create, :edit, :update]
+  resources :documents
   get 'dashboards' , to: 'dashboards#index'
   devise_for :users
-  resources :sents
-  resources :documents
   resources :folders
   resources :types
   resources :tracks , only:[:index]
