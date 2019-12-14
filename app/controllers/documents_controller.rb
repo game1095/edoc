@@ -26,6 +26,7 @@ class DocumentsController < ApplicationController
   end
 
   def update
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>> 1 update"
     @document = Document.find(params[:id])
     if @document.update(document_params)
       redirect_to documents_path , flash: {notice: 'แก้ไขเอกสารแล้ว'}
@@ -52,24 +53,19 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def sent_document
-    @document = Document.find_by(params[:id])
-    @query = User.where(department_id: [@document.department.ids])
-    @email = @query.each { |n| n.email}
-      if @document.update(status_id: 2)
-        redirect_to sents_path
-      else
-        redirect_to documents_path
-      end
-  end
-
-  def dashboard
-
-  end
+  # def sent_document
+  #   @document = Document.find_by(params[:id])
+  #   @query = User.where(department_id: [@document.department.ids])
+  #   @email = @query.each { |n| n.email}
+  #     if @document.update(status_id: 2)
+  #       redirect_to sents_path
+  #     else
+  #       redirect_to documents_path
+  #     end
+  # end
 
   private
     def document_params
-      params.require(:document).permit(:document_number , :date ,:number , :dated , :title , :detail , :status , :folder_id , :type_id , :status_id ,  :confidential_id , :department_id , :remark , images:[] , type_ids:[])
+      params.require(:document).permit(:document_number , :date ,:number , :dated , :title , :detail , :status , :folder_id , :type_id , :status_id ,  :confidential_id  , :remark , :duedate , images:[] , type_ids:[]  , department_ids:[] , document_ids:[])
     end
-
 end
