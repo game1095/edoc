@@ -49,11 +49,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_051839) do
   end
 
   create_table "departments_documents", id: false, force: :cascade do |t|
-    t.bigint "document_id"
-    t.bigint "department_id"
-    t.datetime "duedate"
-    t.index ["department_id"], name: "index_departments_documents_on_department_id"
-    t.index ["document_id"], name: "index_departments_documents_on_document_id"
+    t.bigint "department_id", null: false
+    t.bigint "document_id", null: false
+    t.index ["department_id", "document_id"], name: "index_departments_documents_on_department_id_and_document_id"
+    t.index ["document_id", "department_id"], name: "index_departments_documents_on_document_id_and_department_id"
   end
 
   create_table "documents", force: :cascade do |t|

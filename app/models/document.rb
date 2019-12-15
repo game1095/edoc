@@ -7,6 +7,10 @@ class Document < ApplicationRecord
   has_and_belongs_to_many :type , optional: true
   has_many_attached :images
 
+  #
+  # has_many :sents
+  # has_many :department , :through => :sents
+
   def thumbnail input
     return self.images[input].variant(resize: "150x150!").processed
   end
