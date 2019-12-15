@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'searchs/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # get 'sents' , to: 'documents#sents' , as: 'sents'
   get 'accept_doc' , to: 'dashboards#accept_doc' , as: 'accept_doc'
 
   resources :sents , only: [:index , :new, :create, :edit, :update]
   resources :documents
+  get 'searchs' , to: 'searchs#index'
   get 'dashboards' , to: 'dashboards#index'
   devise_for :users
   resources :folders

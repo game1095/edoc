@@ -128,15 +128,19 @@
             </tr>
           </thead>
           <tbody>
-            <% @document_relate.each do |n| %>
-            <tr>
-              <td><%= n.number %></td>
-              <td><%= link_to n.title , document_path(n.id) %></td>
-              <td><%= n.dated %></td>
-            </tr>
-            <% end %>
+            <% if @document_relate != nil %>
+              <% @document_relate.each do |n| %>
+              <tr>
+                <td><%= n.number %></td>
+                <td><%= link_to n.title , document_path(n.id) %></td>
+                <td><%= n.dated %></td>
+              </tr>
+              <% end %>
+            <% else %>
           </tbody>
         </table>
+              <p>ไม่มีเอกสารที่เกี่ยวข้อง</p>
+            <% end %>
       </div>
     </div>
   </div>
