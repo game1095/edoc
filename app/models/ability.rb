@@ -8,8 +8,8 @@ class Ability
 
     if user.level_id == 1 || user.level_id == 2 || user.level_id == 3 || user.level_id == 5 || user.level_id == 6
       can :manage , :all
-    elsif user.level_id == 4
-      can :read  , DashboardsController
+    elsif user.level_id == 4 || user.level_id == 7
+      can :manage , DashboardsController
     elsif user.level_id == 7
       puts ">>>>>>>>>>>>>>>>>>>>>>3"
 

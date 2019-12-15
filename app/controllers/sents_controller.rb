@@ -1,4 +1,5 @@
 class SentsController < ApplicationController
+  authorize_resource class: SentsController
   def index
     @document = Document.where(status_id: 2)
   end

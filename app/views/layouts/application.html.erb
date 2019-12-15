@@ -24,6 +24,7 @@
                 </span>
                 <h4><%= current_user ? current_user.first_name : "" %>  <%= current_user ? current_user.last_name : "" %></h4>
                 <h4><%= current_user ? current_user.position.name : "" %></h4>
+                <h4><%= current_user ? current_user.department.name : "" %></h4>
                 <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                   <span class="clear"> <span class="block m-t-xs">
@@ -33,27 +34,33 @@
                 </div>
                 <div class="hr-line-dashed"></div>
               </li>
-                <li>
-                  <%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , dashboards_path  ,class: 'nav-label' %>
-                </li>
-                <li>
-                 <%= link_to '<i class="fa fa-file"></i> การจัดการเอกสาร'.html_safe , documents_path  ,class: 'nav-label' %>
-                </li>
-                <li>
-                  <%= link_to '<i class="fa fa-car"></i> ส่งออกเอกสาร'.html_safe , sents_path  ,class: 'nav-label' %>
-                </li>
-                <li>
-                  <%= link_to '<i class="fa fa-eye"></i> ติดตามเอกสาร'.html_safe , tracks_path ,class: 'nav-label' %>
-                </li>
-                <li>
-                  <%= link_to '<i class="fa fa-columns"></i> จัดการแฟ้มเอกสาร'.html_safe , folders_path   ,class: 'nav-label' %>
-                </li>
-                <li>
-                  <%= link_to '<i class="fa fa-car"></i> จัดการประเภทของเอกสาร'.html_safe ,types_path ,class: 'nav-label' %>
-                </li>
-                <li>
-
-                </li>
+                <% if current_user == nil %>
+                <% else %>
+                  <% if current_user.level_id == 1 || current_user.level_id == 2 || current_user.level_id == 3 || current_user.level_id == 5 || current_user.level_id == 6  %>
+                    <li>
+                      <%= link_to '<i class="fa fa-dashboard"></i> Dashboard'.html_safe , dashboards_path  ,class: 'nav-label' %>
+                    </li>
+                    <li>
+                      <%= link_to '<i class="fa fa-file"></i> การจัดการเอกสาร'.html_safe , documents_path  ,class: 'nav-label' %>
+                    </li>
+                    <li>
+                      <%= link_to '<i class="fa fa-car"></i> ส่งออกเอกสาร'.html_safe , sents_path  ,class: 'nav-label' %>
+                    </li>
+                    <li>
+                      <%= link_to '<i class="fa fa-eye"></i> ติดตามเอกสาร'.html_safe , tracks_path ,class: 'nav-label' %>
+                    </li>
+                    <li>
+                      <%= link_to '<i class="fa fa-columns"></i> จัดการแฟ้มเอกสาร'.html_safe , folders_path   ,class: 'nav-label' %>
+                    </li>
+                    <li>
+                      <%= link_to '<i class="fa fa-car"></i> จัดการประเภทของเอกสาร'.html_safe ,types_path ,class: 'nav-label' %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to '<i class="fa fa-dashboard"></i> หน้าแรก'.html_safe , dashboards_path  ,class: 'nav-label' %>
+                    </li>
+                  <% end %>
+                <% end %>
             </ul>
         </div>
       </nav>

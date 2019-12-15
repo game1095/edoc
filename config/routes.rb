@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'types/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # get 'sents' , to: 'documents#sents' , as: 'sents'
-  # get 'new_sent_document' , to: 'documents#new_sent_document' , as: 'new_sent_document'
+  get 'accept_doc' , to: 'dashboards#accept_doc' , as: 'accept_doc'
 
   resources :sents , only: [:index , :new, :create, :edit, :update]
   resources :documents
