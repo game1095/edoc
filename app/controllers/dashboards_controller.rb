@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
   def index
     @document_count = Document.count
     @document_department = Document.where(status_id: 2).count
-    @document_all = Document.where(status_id: 2 )
+    @document_all = Document.all
     # รับเข้าแล้ว
     @document_received = Document.where(status_id: 3 )
     @document_received = Department.find(current_user.department_id).document.where(status_id: 3)
