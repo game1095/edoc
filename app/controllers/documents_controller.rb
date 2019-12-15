@@ -26,7 +26,6 @@ class DocumentsController < ApplicationController
   end
 
   def update
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>> 1 update"
     @document = Document.find(params[:id])
     if @document.update(document_params)
       redirect_to documents_path , flash: {notice: 'แก้ไขเอกสารแล้ว'}
