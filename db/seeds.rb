@@ -13,7 +13,7 @@ Level.create(id: 2 , name: 'หัวหน้าที่ทำการ')
 Level.create(id: 3 , name: 'ผู้ช่วยหัวหน้าที่ทำการ')
 Level.create(id: 4 , name: 'พนักงานทั่วไป')
 Level.create(id: 5 , name: 'เจ้าหน้าที่แผนกธุรการ')
-Level.create(id: 6 , name: 'หัวหน้าแผนกธุรกา')
+Level.create(id: 6 , name: 'หัวหน้าแผนกธุรการ')
 Level.create(id: 7 , name: 'หัวหน้าแผนก')
 
 #Department
